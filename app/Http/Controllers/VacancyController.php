@@ -9,7 +9,6 @@ use Illuminate\Http\JsonResponse;
 
 class VacancyController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *
@@ -27,5 +26,4 @@ class VacancyController extends Controller
 
         return response()->json($model, 201);
     }
-
 }

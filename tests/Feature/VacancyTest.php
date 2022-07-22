@@ -1,18 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests\Feature;
 
 use App\Models\User;
 use App\Models\Vacancy;
-use Database\Factories\UserFactory;
-use Illuminate\Support\Facades\RateLimiter;
-use JetBrains\PhpStorm\ArrayShape;
-use PHPUnit\Exception;
 use Tests\TestCase;
 
 class VacancyTest extends TestCase
 {
-
     /**
      * Get vacancy request payload
      * @return array
@@ -21,7 +16,7 @@ class VacancyTest extends TestCase
     {
         return [
             'title' => $this->faker->name,
-            'description' => $this->faker->paragraph
+            'description' => $this->faker->paragraph,
         ];
     }
 
@@ -62,5 +57,4 @@ class VacancyTest extends TestCase
         // last check response getting 429 to many attempt
         $response->assertStatus(429);
     }
-
 }

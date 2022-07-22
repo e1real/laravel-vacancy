@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Artisan;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication, RefreshDatabase;
+    use CreatesApplication;
+    use RefreshDatabase;
 
     protected Generator $faker;
 
@@ -25,7 +26,6 @@ abstract class TestCase extends BaseTestCase
 
         Artisan::call('migrate');
     }
-
 
     /**
      * Rolls back migrations

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
@@ -19,8 +19,8 @@ class Vacancy extends Model
     /**
      * @return BelongsTo
      */
-    public function owner(): BelongsTo {
+    public function owner(): BelongsTo
+    {
         return $this->belongsTo(User::class, 'created_by', 'created_by');
     }
-
 }

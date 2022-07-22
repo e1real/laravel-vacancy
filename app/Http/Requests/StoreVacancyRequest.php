@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\Requests;
 
@@ -25,7 +25,7 @@ class StoreVacancyRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
         ];
     }
 }

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\RateLimiter;
 
 class CreateNewVacancy implements ICreateNewContract
 {
-
     /**
      * Create new vacancy handler
      *
@@ -26,7 +25,6 @@ class CreateNewVacancy implements ICreateNewContract
         $limitPerSecond = env('USER_POST_VACANCIES_LIMIT_PER_SECOND');
 
         if (RateLimiter::remaining('create-new-vacancy:'.$user->id, $attempts)) {
-
             $model = Vacancy::query()->create(array_merge($validatedData, ['owner_id' => $user->id]));
             RateLimiter::hit('create-new-vacancy:'.$user->id, $limitPerSecond);
 
