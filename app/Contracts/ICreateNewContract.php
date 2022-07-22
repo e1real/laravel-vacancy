@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 interface ICreateNewContract
 {
     /**
-     * Create new entity from validated request
+     * Create new vacancy handler
      *
      * @param  array  $validatedData
      * @param User $user
