@@ -20,7 +20,7 @@ class VacancyFactory extends Factory
         return [
             'title' => fake()->name(),
             'description' => fake()->text(200),
-            'created_by' => User::query()->first()->id,
+            'owner_id' => User::query()->first()->id,
         ];
     }
 }

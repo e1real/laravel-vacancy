@@ -21,6 +21,6 @@ class Vacancy extends Model
      */
     public function owner(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'created_by', 'created_by');
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }
