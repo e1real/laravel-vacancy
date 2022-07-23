@@ -43,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * Get the balance associated with the user.
+     */
+    public function balance()
+    {
+        return $this->hasOne(UserBalance::class);
+    }
 }
