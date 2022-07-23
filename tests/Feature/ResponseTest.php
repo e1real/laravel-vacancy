@@ -73,15 +73,16 @@ class ResponseTest extends TestCase
                 [
                     'accept' => 'application/json',
                 ]
-            );
+            )
+        ;
         $response->assertStatus(422);
         $response->assertJson([
             'message' => 'The vacancy id has already been taken.',
             'errors' => [
                 'vacancy_id' => [
-                    'The vacancy id has already been taken.'
-                ]
-            ]
+                    'The vacancy id has already been taken.',
+                ],
+            ],
         ]);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\VacancyResponseRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -27,14 +26,13 @@ class StoreResponseRequest extends FormRequest
     {
         return [
             'message' => 'required',
-            'vacancy_id' =>[
+            'vacancy_id' => [
                 'required',
                 'numeric',
                 Rule::unique('responses')->where(function ($query) {
                     return $query->where('sender_id', $this->user()->id);
                 }),
-            ]
+            ],
         ];
     }
-
 }

@@ -1,11 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use function Psy\debug;
 
 class UserBalance extends Model
 {
@@ -19,7 +18,8 @@ class UserBalance extends Model
     /**
      * Raise user coins
      */
-    public static function raiseAllUserCoins($maxCoins, $coinsPerDay): bool {
+    public static function raiseAllUserCoins($maxCoins, $coinsPerDay): bool
+    {
         try {
             DB::beginTransaction();
 

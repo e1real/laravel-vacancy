@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Response\CreateNewResponse;
-use App\Exceptions\ToManyVacancyPerUser;
 use App\Http\Requests\StoreResponseRequest;
 use Illuminate\Http\JsonResponse;
 
