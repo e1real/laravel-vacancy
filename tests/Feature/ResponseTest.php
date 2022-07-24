@@ -51,7 +51,7 @@ class ResponseTest extends TestCase
      *
      * @return void
      */
-    public function users_cannot_send_two_or_more_responses_to_the_same_job_vacancy()
+    public function test_users_cannot_send_two_or_more_responses_to_the_same_job_vacancy()
     {
         $vacancyCreator = User::factory()->create();
         $vacancy = Vacancy::factory()->create(['owner_id' => $vacancyCreator]);
