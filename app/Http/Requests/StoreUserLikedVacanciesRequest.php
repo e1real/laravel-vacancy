@@ -14,7 +14,7 @@ class StoreUserLikedVacanciesRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,10 +26,6 @@ class StoreUserLikedVacanciesRequest extends FormRequest
     {
         return [
             'vacancy_id' => [
-                'required',
-                'numeric',
-            ],
-            'user_id' => [
                 'required',
                 'numeric',
             ],

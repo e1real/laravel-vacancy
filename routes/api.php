@@ -4,6 +4,7 @@ use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\VacancyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserLikedVacanciesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('vacancy', VacancyController::class);
 Route::resource('response', ResponseController::class);
-Route::post('/user-liked-vacancies/like', [ResponseController::class, 'like']);
+Route::resource('user-liked-vacancies', UserLikedVacanciesController::class);
