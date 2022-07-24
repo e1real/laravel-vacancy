@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('vacancy', VacancyController::class);
 Route::resource('response', ResponseController::class);
+Route::post('/user-liked-vacancies/like', [ResponseController::class, 'like']);
