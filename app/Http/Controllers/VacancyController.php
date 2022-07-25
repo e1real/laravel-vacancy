@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Vacancy\CreateNewVacancy;
 use App\Exceptions\ToManyVacancyPerUser;
+use App\Exceptions\NoLeftCoinsException;
 use App\Http\Requests\StoreVacancyRequest;
 use Illuminate\Http\JsonResponse;
 
@@ -22,6 +23,8 @@ class VacancyController extends Controller
             $model = $action->handle($request->user(), $request->validated());
         } catch (ToManyVacancyPerUser $exception) {
             return response()->json(['message' => 'To many request'], 429);
+        } catch (NoLeftCoinsException $exception) {
+            return response()->json(['message' => ' You are out of coins'], 422);
         }
 
         return response()->json($model, 201);

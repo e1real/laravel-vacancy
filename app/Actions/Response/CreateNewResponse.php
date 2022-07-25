@@ -5,6 +5,7 @@ namespace App\Actions\Response;
 use App\Contracts\ICreateNewContract;
 use App\Models\Response;
 use App\Models\User;
+use App\Models\UserBalance;
 use Illuminate\Database\Eloquent\Model;
 
 class CreateNewResponse implements ICreateNewContract

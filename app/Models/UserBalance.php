@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\NoLeftCoinsException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class UserBalance extends Model
     ];
 
     /**
-     * Raise user coins
+     * Raise all user coins
      */
     public static function raiseAllUserCoins($maxCoins, $coinsPerDay): bool
     {
@@ -40,5 +41,21 @@ class UserBalance extends Model
         }
 
         return false;
+    }
+
+    /**
+     * Collect the money for publishing the post
+     * @throws NoLeftCoinsException
+     */
+    public function keepForJobPosting() {
+        $postingCost = intval(env('VACANCY_POST_COST'));
+        $coins = intval($this->coins);
+
+        if (($coins - $postingCost < 0)) {
+            throw new NoLeftCoinsException;
+        }
+
+        $this->coins = $coins - $postingCost;
+        return $this->save();
     }
 }
